@@ -1,0 +1,18 @@
+meta {
+  name: Read book
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "title_name",
+    "author_id": 1
+  }
+}

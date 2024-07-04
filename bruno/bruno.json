@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "redis-express",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

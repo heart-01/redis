@@ -1,0 +1,18 @@
+meta {
+  name: Create book
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/books
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "title_name2",
+    "author_id": 1
+  }
+}
