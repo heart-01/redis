@@ -2,8 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3").verbose();
 const redis = require("redis");
-const session = require("express-session");
-const RedisStore = require("connect-redis").default;
 
 const app = express();
 app.use(bodyParser.json());
@@ -20,16 +18,6 @@ redisClient.on("error", (err) => {
 (async () => {
   await redisClient.connect();
 })();
-
-app.use(
-  session({
-    store: new RedisStore({ client: redisClient }),
-    secret: "@$FG%$%%^HGHFGHE#$",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false },
-  })
-);
 
 db.serialize(() => {
   db.run("CREATE TABLE IF NOT EXISTS authors (id INTEGER PRIMARY KEY, name TEXT)");
